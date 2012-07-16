@@ -18,9 +18,21 @@ int main(void)
 	LockoutProtection();
 	InitializeMCU();
 	initUART();																							    
+<<<<<<< HEAD
 	
 	//Motor Init
         InitializeMotors(true,true);
+=======
+	/****************************************
+	# IR sensors to navigate through field, #
+	# or line sensors? Both?                #
+	*****************************************/
+
+        // while(rightSensor>=60&&rightSensor<=140) forward;
+	// while..........................etc
+	// # when IR reads the gap (all IR max range, line 
+	// # sensor confirm, turn to push marbles
+>>>>>>> 762d09796cfcc3710d5a74f1b14975a3a154b8e7
 
 	while(1) {	
 	  //Put looping code
