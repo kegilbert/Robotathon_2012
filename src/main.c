@@ -19,8 +19,12 @@ int main(void)
 	InitializeMCU();
 	initUART();																							    
 	
+	//Motor Init
+        InitializeMotors(true,true);
+
 	while(1) {	
 	  //Put looping code
+		SetMotorPowers(80,80);    // Sample motor setup, test1
 	}
 
 }
