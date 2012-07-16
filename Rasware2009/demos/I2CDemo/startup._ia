@@ -1,0 +1,1 @@
+--cpu Cortex-M3 -g --apcs=interwork --pd "__MICROLIB SETA 1" -I "C:\Keil\ARM\INC" -I "C:\Keil\ARM\INC\Luminary" -o "Startup.o" --depend "Startup.d" "Startup.s"

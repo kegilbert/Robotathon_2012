@@ -1,0 +1,46 @@
+\documentclass[12pt]{article}
+
+\usepackage[pdftex]{graphicx}
+\usepackage{hyperref}
+
+\hypersetup{colorlinks=true, citecolor=blue, urlcolor=blue}
+\usepackage[margin=1in]{geometry}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\usepackage{mathptmx} 
+\linespread{1.05}
+\usepackage[T1]{fontenc}
+
+\setcounter{secnumdepth}{-1} 
+\setlength{\headheight}{15pt}
+
+\begin{document}
+\fancyhead[LO]{Kaarthik Rajendran  \today}
+
+
+
+{\Huge 2012 IEEE Region V Robotics Competition Technical Paper}\\[\baselineskip]
+{\large\itshape Kaarthik Rajendran }\\[\baselineskip]
+\today 
+
+\section{Introduction}
+\subsection{Aims}
+The challenge was to harvest energy from three different energy sources and deliver to an electrochemical device (i.e. the flag) to measure the amount of energy transmitted. 
+
+\subsection{Objectives}
+\begin{itemize}
+	\item Capture energy from at least two of three sources (either wind, light, or electric)
+	\item Transfer stored energy to the flag mechanism
+\end{itemize}
+\subsection{Project Restrictions}
+\begin{itemize}
+	\item The playing field was a 8 foot by 8 foot medium-density fibreboard (MDF) surface divided into four quadrants. Each quadrant consisted of an energy source in the corner. 
+	\item Energy Sources
+		\begin{enumerate}
+			\item Light Source: 50 Watt Halogen MR16 GU10 Base Flood Light Bulb powered by 115 V, 60 Hz Outlet. Center of bulb was 6 inches above the playing field. Circular surface of bulb was 6 inches away from the inside surface of the perimeter. 
+		\end{enumerate}
+\end{itemize}
+\end{document}
+
