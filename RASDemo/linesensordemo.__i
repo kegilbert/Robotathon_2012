@@ -1,0 +1,1 @@
+-c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O0 --apcs=interwork -I..\StellarisWare -I..\RASLib\include -I "C:\Keil\ARM\CMSIS\Include" -I "C:\Keil\ARM\INC\Luminary" -o "linesensordemo.o" --omf_browse "linesensordemo.crf" --depend "linesensordemo.d" "LineSensorDemo.c"
