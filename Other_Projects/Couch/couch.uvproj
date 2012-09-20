@@ -389,6 +389,11 @@
           <GroupName>lib</GroupName>
           <Files>
             <File>
+              <FileName>uartstdio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\StellarisWare\utils\uartstdio.c</FilePath>
+            </File>
+            <File>
               <FileName>raslib.lib</FileName>
               <FileType>4</FileType>
               <FilePath>..\..\RASLib\Debug\raslib.lib</FilePath>
@@ -412,11 +417,6 @@
               <FileName>Startup.s</FileName>
               <FileType>2</FileType>
               <FilePath>.\Startup.s</FilePath>
-            </File>
-            <File>
-              <FileName>uartstdio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\StellarisWare\utils\uartstdio.c</FilePath>
             </File>
           </Files>
         </Group>

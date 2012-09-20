@@ -27,41 +27,25 @@ volatile signed long forward;
 volatile signed long sideward;
 
 void init_motors(tBoolean inv0, tBoolean inv1) {
-    //GPIO C pin 7 and
-    //GPIO B pin 5 are disables for the H-bridge
-	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOC);
-	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOB);
-
-    //GPIO E pin 0 and 1 is for the PWM signal
-	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOE);
+    //GPIO D pin 0 and 1 is for PWM signal
+	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOD);
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_PWM);
-	GPIOPinTypePWM(GPIO_PORTE_BASE, GPIO_PIN_0 | GPIO_PIN_1);
+	GPIOPinTypePWM(GPIO_PORTD_BASE, GPIO_PIN_0 | GPIO_PIN_1);
 	
     //Create the PWM signal
-	PWMGenConfigure(PWM_BASE, PWM_GEN_2, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC);
-	PWMGenPeriodSet(PWM_BASE, PWM_GEN_2, 256);
-	PWMOutputInvert(PWM_BASE, PWM_OUT_4_BIT, inv0);
-	PWMOutputInvert(PWM_BASE, PWM_OUT_5_BIT, inv1);
-	PWMOutputState(PWM_BASE, PWM_OUT_4_BIT | PWM_OUT_5_BIT, true);
-	PWMPulseWidthSet(PWM_BASE, PWM_OUT_4, 0);
-	PWMPulseWidthSet(PWM_BASE, PWM_OUT_5, 0);
-	PWMGenEnable(PWM_BASE, PWM_GEN_2);
-	
-    //Set C7 and B5 low to enable the H-Bridge
-	GPIOPinTypeGPIOOutput(GPIO_PORTC_BASE, GPIO_PIN_7);
-	GPIOPinTypeGPIOOutput(GPIO_PORTB_BASE, GPIO_PIN_5);
-	GPIOPinWrite(GPIO_PORTC_BASE, GPIO_PIN_7, 0x00);
-	GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_5, 0x00);
-}
-
-void power_motors(tBoolean enabl) {
-    GPIOPinWrite(GPIO_PORTC_BASE, GPIO_PIN_7, (!enabl) << 7);
-    GPIOPinWrite(GPIO_PORTB_BASE, GPIO_PIN_5, (!enabl) << 5);
+	PWMGenConfigure(PWM_BASE, PWM_GEN_0, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC);
+	PWMGenPeriodSet(PWM_BASE, PWM_GEN_0, 256);
+	PWMOutputInvert(PWM_BASE, PWM_OUT_0_BIT, inv0);
+	PWMOutputInvert(PWM_BASE, PWM_OUT_1_BIT, inv1);
+	PWMOutputState(PWM_BASE, PWM_OUT_0_BIT | PWM_OUT_1_BIT, true);
+	PWMPulseWidthSet(PWM_BASE, PWM_OUT_0, 128);
+	PWMPulseWidthSet(PWM_BASE, PWM_OUT_1, 128);
+	PWMGenEnable(PWM_BASE, PWM_GEN_0);
 }
 
 void set_motors(signed char m0, signed char m1) {
-	PWMPulseWidthSet(PWM_BASE, PWM_OUT_4, m0+128);
-	PWMPulseWidthSet(PWM_BASE, PWM_OUT_5, m1+128);
+	PWMPulseWidthSet(PWM_BASE, PWM_OUT_0, m0+128);
+	PWMPulseWidthSet(PWM_BASE, PWM_OUT_1, m1+128);
 }
 
 void init_input() {
@@ -112,6 +96,8 @@ void adc_handler() {
 
 
 int main() {
+	signed long ml,mr;
+	
 	LockoutProtection();
 	InitializeMCU();
 	InitializeUART();
@@ -123,23 +109,23 @@ int main() {
 	UARTprintf("- Hi I am Couch! -");
 	
 	for (;;) {
-        signed long ml,mr;
 #ifdef DEBUG
         //range of values is -512 to 512
 		UARTprintf("[ f:%d s:%d p:%d ]\n",forward,sideward,power);
 #endif
 		
-        power_motors(power);
+		if (power) {
+			
+			if (sideward > 0) {
+				ml = (forward * (512-sideward))/512;
+				mr = forward;
+			} else {
+				ml = forward;
+				mr = (forward * (512+sideward))/512;
+			}
 
-        if (sideward > 0) {
-            ml = (forward * (512-sideward))/512;
-            mr = forward;
-        } else {
-            ml = forward;
-            mr = (forward * (512+sideward))/512;
-        }
-
-		set_motors((signed char)(ml >> 2), (signed char)(mr >> 2));
+			set_motors((signed char)(ml >> 2), (signed char)(mr >> 2));
+		}
 	}
 }
 
