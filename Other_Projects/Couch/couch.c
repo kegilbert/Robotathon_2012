@@ -12,13 +12,16 @@
 
 #include "RASLib/init.h"
 
-
 #define InitializeUART()										\
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOA);				\
 	GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1);	\
 	UARTStdioInit(0);
 
 #define DEBUG	
+#define MAX_VAL 300
+#define INV_L false
+#define INV_R false
+
 
 //these variables are volatile because they can be changed in interrupts
 
@@ -96,14 +99,14 @@ void adc_handler() {
 
 
 int main() {
-	signed long ml,mr;
+	signed long ml, mr, sc_for, sc_side;
 	
 	LockoutProtection();
 	InitializeMCU();
 	InitializeUART();
 	IntMasterEnable();
 	
-	init_motors(true, true);
+	init_motors(INV_L, INV_R);
 	init_input();
 	
 	UARTprintf("- Hi I am Couch! -");
@@ -115,15 +118,20 @@ int main() {
 #endif
 		
 		if (power) {
-			
-			if (sideward > 0) {
-				ml = (forward * (512-sideward))/512;
-				mr = forward;
+	    	//scale the motors to match MAX_VAL
+            sc_for = (forward * 512)/MAX_VAL;
+            sc_side = (sideward * 512)/MAX_VAL;
+	        
+            //reduce the motor you're turning into
+			if (sc_side > 0) {
+				ml = (sc_for * (512-sc_side))/512;
+				mr = sc_for;
 			} else {
-				ml = forward;
-				mr = (forward * (512+sideward))/512;
+				ml = sc_for;
+				mr = (sc_for * (512+sc_side))/512;
 			}
-
+            
+            //shift to put the motors in the range of a char
 			set_motors((signed char)(ml >> 2), (signed char)(mr >> 2));
 		}
 	}
