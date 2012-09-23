@@ -1,3 +1,9 @@
+#define DEBUG
+#define USE_RASLIB 1
+#define MAX_VAL 350
+#define INV_L true
+#define INV_R false
+
 #include "inc/hw_types.h"		// tBoolean
 #include "inc/hw_memmap.h"
 #include "inc/hw_ints.h"
@@ -11,16 +17,14 @@
 #include "driverlib/interrupt.h"
 
 #include "RASLib/init.h"
+#ifdef USE_RASLIB
+#include "RASLib/servo.h"
+#endif
 
 #define InitializeUART()										\
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOA);				\
 	GPIOPinTypeUART(GPIO_PORTA_BASE, GPIO_PIN_0 | GPIO_PIN_1);	\
 	UARTStdioInit(0);
-
-#define DEBUG	
-#define MAX_VAL 300
-#define INV_L false
-#define INV_R false
 
 
 //these variables are volatile because they can be changed in interrupts
@@ -29,6 +33,26 @@ volatile tBoolean power;
 volatile signed long forward;
 volatile signed long sideward;
 
+signed char flip0, flip1;
+
+#if USE_RASLIB
+void init_motors(tBoolean inv0, tBoolean inv1) {
+	flip0 = inv0 ? -1 : 1;
+	flip1 = inv1 ? -1 : 1;
+	InitializeServos();
+}
+
+void set_motors(signed char m0, signed char m1) {
+	m0 *= flip0;
+	m1 *= flip1;
+	SetServoPosition(SERVO_0, m0+128);
+	SetServoPosition(SERVO_1, m1+128);
+}
+#else
+//Chris had to eat his words
+//
+//pwm isn't what he thought it was
+//rendering the following code not very useful
 void init_motors(tBoolean inv0, tBoolean inv1) {
     //GPIO D pin 0 and 1 is for PWM signal
 	SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOD);
@@ -50,6 +74,7 @@ void set_motors(signed char m0, signed char m1) {
 	PWMPulseWidthSet(PWM_BASE, PWM_OUT_0, m0+128);
 	PWMPulseWidthSet(PWM_BASE, PWM_OUT_1, m1+128);
 }
+#endif
 
 void init_input() {
     //GPIO D pin 7 is for the power signal
@@ -117,10 +142,10 @@ int main() {
 		UARTprintf("[ f:%d s:%d p:%d ]\n",forward,sideward,power);
 #endif
 		
-		if (power) {
-	    	//scale the motors to match MAX_VAL
-            sc_for = (forward * 512)/MAX_VAL;
-            sc_side = (sideward * 512)/MAX_VAL;
+		if (!power) {
+            //scale the motors to match MAX_VA
+			sc_for = (forward * 512)/MAX_VAL;
+			sc_side = (sideward * 512)/MAX_VAL;
 	        
             //reduce the motor you're turning into
 			if (sc_side > 0) {
@@ -130,9 +155,17 @@ int main() {
 				ml = sc_for;
 				mr = (sc_for * (512+sc_side))/512;
 			}
-            
+             
             //shift to put the motors in the range of a char
-			set_motors((signed char)(ml >> 2), (signed char)(mr >> 2));
+			ml >>= 2;
+			mr >>= 2;
+            //check for overflow
+			if (ml >  126) ml =  126;
+			if (ml < -127) ml = -127;
+			if (mr >  126) mr =  126;
+			if (mr < -127) mr = -127;
+			
+			set_motors((signed char)ml, (signed char)mr);
 		}
 	}
 }
