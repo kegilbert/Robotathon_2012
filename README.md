@@ -57,7 +57,7 @@ Note: Only Windows is supported.
     5. Now double click `Robotathon2012` to connect to the board.
 4. Hit the reset button on the board. The following should appear on the Putty console.
 
-![Putty Console](https://lh6.googleusercontent.com/1j6WbJfeVEiiIcR5qJFt4liD4wWNRV1PWAuWpxkVxgIXu-kenDPIqj_GoYqYr7DHgpl08iJtTFYDNswYOg2Bl47D0f28NiHIVkOG2U0zK5se6Du5TC4)
+    ![Putty Console](https://lh6.googleusercontent.com/1j6WbJfeVEiiIcR5qJFt4liD4wWNRV1PWAuWpxkVxgIXu-kenDPIqj_GoYqYr7DHgpl08iJtTFYDNswYOg2Bl47D0f28NiHIVkOG2U0zK5se6Du5TC4)
 
 5. As the menu indicates, press the numbers 0-5 to use the demos.
 
