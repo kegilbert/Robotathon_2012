@@ -61,6 +61,8 @@
             <UserProg2Name></UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
+            <nStopU1X>0</nStopU1X>
+            <nStopU2X>0</nStopU2X>
           </BeforeCompile>
           <BeforeMake>
             <RunUserProg1>0</RunUserProg1>
@@ -346,7 +348,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\StellarisWare;..\RASLib\include</IncludePath>
+              <IncludePath>..\..\StellarisWare;..\..\RASLib\include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -409,17 +411,17 @@
             <File>
               <FileName>driverlib.lib</FileName>
               <FileType>4</FileType>
-              <FilePath>..\StellarisWare\driverlib\rvmdk\driverlib.lib</FilePath>
+              <FilePath>..\..\StellarisWare\driverlib\rvmdk\driverlib.lib</FilePath>
             </File>
             <File>
               <FileName>raslib.lib</FileName>
               <FileType>4</FileType>
-              <FilePath>..\RASLib\Debug\raslib.lib</FilePath>
+              <FilePath>..\..\RASLib\Debug\raslib.lib</FilePath>
             </File>
             <File>
               <FileName>uartstdio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\StellarisWare\utils\uartstdio.c</FilePath>
+              <FilePath>..\..\StellarisWare\utils\uartstdio.c</FilePath>
             </File>
           </Files>
         </Group>
