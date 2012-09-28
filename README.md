@@ -1,15 +1,15 @@
 How to set up Rasware 2012
-==========================
+--------------------------
 
 Note: Only Windows is supported.
 
 
-# Getting started with Git #
+### Getting started with Git ###
 
 1. Create a free GitHub account on [github.com](https://github.com/signup/free).
 2. Follow GitHub's great instructions for installing [Git](https://help.github.com/articles/set-up-git) on your computer.
 
-# Forking Rasware #
+### Forking Rasware ###
 
 1. Once logged into GitHub, go to [ut-ras](https://github.com/ut-ras)'s [Rasware2012](https://github.com/ut-ras/Rasware2012).
 2. [Fork](https://help.github.com/articles/fork-a-repo) the project's code through the button on the top right. This will copy the project to your own account.
@@ -17,12 +17,12 @@ Note: Only Windows is supported.
 4. Do Git Clone to create a copy of the project on your computer. In GitHub for Windows, simply click on `clone` next to the Rasware2012 project.
 5. Right click on Rasware2012 then click on `open in explorer` to open the folder containing the project.
 
-# Install Putty #
+### Install Putty ###
 
 1. Go to <http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html>.
 2. Under "for Windows on Intel x86" click on [putty.exe](http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe) to save putty to your computer.
 
-# Install Keil uVision #
+### Install Keil uVision ###
 
 1. Go to the LM3S811 Evaluation Kit CD at <http://www.ti.com/tool/ekk-lm3s811-cd>.
 2. Click Get Software. To download it you'll need to create an account.
@@ -31,7 +31,7 @@ Note: Only Windows is supported.
 5. Click the Keil logo to "download" and open the installer.
 6. Follow the installation dialogue.
 
-# Install the drivers #
+### Install the drivers ###
 
 1. Go back to the Tools page in the CD folder.
 2. Click on the link uder _ICDI Drivers_.
@@ -44,7 +44,7 @@ Note: Only Windows is supported.
 9. Browse to where you previously unzipped the drivers and select the Tools folder.
 10. Once all of the drivers are installed, note the COM port number that appears in the Device Manager. It should read something like `Stellaris Virtual COM Port (COMX)` where X is the port.
 
-# Run the demo project #
+### Run the demo project ###
 1. Open the Rasware2012 project on your computer.
 2. Navigate to _Rasware2012/Robotathon2012_Projects/RASDemo.uvproj_ and open the file with Keil uVision.
 3. Click the compile button ![compile](https://lh3.googleusercontent.com/F3ur_YkxpV0FTuK3uqwsFrixAPynRjNBMCC4TuTMVJ6uQtUPyFY_0pM99ZXhlYX6oTjN7b1owbhBNZEWBLcbbj7yncxjHEjTrR5rl2vHMybFWZUs_yk) and make sure that it compiles without errors.
@@ -57,6 +57,7 @@ Note: Only Windows is supported.
     5. Now double click `Robotathon2012` to connect to the board.
 4. Hit the reset button on the board. The following should appear on the Putty console.
 
+
     RAS Demo for Robotathon 2012
       0=UART Demo
       1=Motor Demo
@@ -66,9 +67,10 @@ Note: Only Windows is supported.
       5=Encoders Demo
     >>
 
+
 5. As the menu indicates, press the numbers 0-5 to use the demos.
 
-# Create a team project #
+### Create a team project ###
 
 1. Create a copy of the RASDemo project in _Rasware2012/Robotathon2012_Projects_.
 2. Rename the Project to your team's name.
