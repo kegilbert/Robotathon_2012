@@ -1,0 +1,10 @@
+finish importing
+(these weren't automatically imported properly)
+boards/
+	ek-lm3s811/
+		hello/
+			hello.c.orig
+utils/
+	uartstdio.c.orig
+	uartstdio.h.orig
+

@@ -1,0 +1,1 @@
+--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1" -I "D:\Program Files\Keil\ARM\RV31\Inc" -I "D:\Program Files\Keil\ARM\CMSIS\Include" -I "D:\Program Files\Keil\ARM\Inc\Luminary" --list "Startup.lst" --xref -o "Startup.o" --depend "Startup.d" "Startup.s"

@@ -1,0 +1,161 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/11/trunk/StellarisWare/inc
+END
+hw_flash.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/11/trunk/StellarisWare/inc/hw_flash.h
+END
+hw_i2s.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/11/trunk/StellarisWare/inc/hw_i2s.h
+END
+hw_ssi.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/11/trunk/StellarisWare/inc/hw_ssi.h
+END
+hw_comp.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/11/trunk/StellarisWare/inc/hw_comp.h
+END
+hw_gpio.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/11/trunk/StellarisWare/inc/hw_gpio.h
+END
+hw_nvic.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/11/trunk/StellarisWare/inc/hw_nvic.h
+END
+hw_watchdog.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/11/trunk/StellarisWare/inc/hw_watchdog.h
+END
+hw_hibernate.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/11/trunk/StellarisWare/inc/hw_hibernate.h
+END
+hw_can.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/11/trunk/StellarisWare/inc/hw_can.h
+END
+hw_pwm.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/11/trunk/StellarisWare/inc/hw_pwm.h
+END
+hw_types.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/11/trunk/StellarisWare/inc/hw_types.h
+END
+cr_project.xml
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/11/trunk/StellarisWare/inc/cr_project.xml
+END
+hw_uart.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/11/trunk/StellarisWare/inc/hw_uart.h
+END
+hw_memmap.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/11/trunk/StellarisWare/inc/hw_memmap.h
+END
+inc.sgxx
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/11/trunk/StellarisWare/inc/inc.sgxx
+END
+hw_epi.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/11/trunk/StellarisWare/inc/hw_epi.h
+END
+hw_ints.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/11/trunk/StellarisWare/inc/hw_ints.h
+END
+hw_i2c.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/11/trunk/StellarisWare/inc/hw_i2c.h
+END
+hw_qei.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/11/trunk/StellarisWare/inc/hw_qei.h
+END
+hw_ethernet.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/11/trunk/StellarisWare/inc/hw_ethernet.h
+END
+hw_timer.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/11/trunk/StellarisWare/inc/hw_timer.h
+END
+hw_sysctl.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/11/trunk/StellarisWare/inc/hw_sysctl.h
+END
+asmdefs.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/11/trunk/StellarisWare/inc/asmdefs.h
+END
+hw_udma.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/11/trunk/StellarisWare/inc/hw_udma.h
+END
+hw_adc.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/11/trunk/StellarisWare/inc/hw_adc.h
+END
+hw_usb.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/11/trunk/StellarisWare/inc/hw_usb.h
+END
